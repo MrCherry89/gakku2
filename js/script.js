@@ -65,4 +65,28 @@ $(document).ready(function () {
       document.getElementById(tabId).classList.add("active");
     });
   });
+
+  $(".perfect .show-btn").on("click", function (e) {
+    e.preventDefault();
+
+    // Показываем все элементы
+    $(this).closest(".perfect").find(".items .item").removeClass("hide");
+
+    // Показываем кнопку скрытия, скрываем кнопку показа
+    $(this).closest(".perfect").find(".hide-btn").show();
+    $(this).hide();
+  });
+
+  $(".perfect .hide-btn").on("click", function (e) {
+    e.preventDefault();
+
+    // Скрываем все элементы
+    $(this).closest(".perfect").find(".items .item").addClass("hide");
+
+    // Показываем кнопку показа, скрываем кнопку скрытия
+    $(this).closest(".perfect").find(".show-btn").show();
+    $(this).hide();
+  });
+
+  AOS.init();
 });
