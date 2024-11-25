@@ -2,6 +2,119 @@
 @import "global";
 @import "fonts";
 
+.planning-solutions {
+  margin: 20px 0;
+  .planning-solutions-slider {
+    .item {
+      @include flex;
+      margin: 40px 10px;
+      width: 350px;
+      @media (max-width: 767px) {
+        width: auto;
+        margin: 0;
+        img {
+          width: 100%;
+        }
+      }
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+  }
+}
+
+.planning-solutions-slider .slick-center {
+  transform: scale(1.4); /* Увеличение центрального элемента */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавный переход */
+  z-index: 2; /* Центральный элемент выше других */
+  @media (max-width: 767px) {
+    transform: scale(1);
+  }
+}
+
+.planning-solutions-slider .slick-slide {
+  transition: transform 0.3s ease; /* Плавность изменения размера */
+  z-index: 1; /* Остальные элементы ниже */
+}
+
+.opened-tours {
+  margin: 20px 0 40px;
+}
+
+.tabs {
+  display: flex;
+  margin-top: 20px;
+  @include flex-wrap;
+}
+
+.tab-button {
+  border: none;
+  background: #f0f0f0;
+  cursor: pointer;
+  margin-right: 10px;
+  padding: 6px 40px;
+  border-radius: 50px;
+  background: rgba(#1a282a, 0.5);
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  @media (max-width: 1024px) {
+    padding: 6px 30px;
+  }
+  @media (max-width: 767px) {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+.tab-button.active {
+  background: #1a282a;
+}
+
+.tab-content {
+  position: relative;
+}
+
+.tab-pane {
+  display: none;
+  .image-3d {
+    height: 500px;
+    @include flex;
+    @include align-center;
+    @include justify-center;
+    background: #ababab;
+    color: white;
+    font-size: 28px;
+    @media (max-width: 1024px) {
+      height: 70vw;
+    }
+  }
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+/* Стили для 3D-изображений */
+.image-3d {
+  perspective: 1000px;
+  text-align: center;
+}
+
+.image-3d img {
+  width: 100%;
+  max-width: 500px;
+  transform: rotateY(10deg) rotateX(10deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.image-3d img:hover {
+  transform: rotateY(0deg) rotateX(0deg) scale(1.05);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+}
+
 .commercial {
   margin: 20px 0;
   .title-wrap {
